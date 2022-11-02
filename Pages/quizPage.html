@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Old Fashioned Compassionate Mallard</title>
+    <meta property="og:title" content="Old Fashioned Compassionate Mallard" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6 {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link rel="stylesheet" href="./inputPage.css" />
+  </head>
+
+  <script>
+    var questions = 0;
+    var scoreVal =0;
+
+   function detectAnswer(questionNum){
+    var answerButton = document.getElementById('answerBtn'+questionNum);
+    var selectedAnswer = document.querySelector('input[name="q'+questionNum+'"]:checked').value;
+    var questionsAnswered = [];
+
+    if(questionNum>questions){
+      switch(questionNum){
+        case 1:
+          if(selectedAnswer=="5"){
+            answerButton.innerHTML = 'The answer is correct';
+            answerButton.disabled = true;
+            scoreVal++;
+          }else{
+            answerButton.innerHTML = 'The answer is wrong';
+          }
+          break;
+        case 2:
+        if(selectedAnswer=="15"){
+            answerButton.innerHTML = 'The answer is correct';
+            answerButton.disabled = true;
+            scoreVal++;
+          }else{
+            answerButton.innerHTML = 'The answer is wrong';
+          }
+          break;
+        case 3:
+        if(selectedAnswer=="0.42"){
+            answerButton.innerHTML = 'The answer is correct';
+            answerButton.disabled = true;
+            scoreVal++;
+          }else{
+            answerButton.innerHTML = 'The answer is wrong';
+          }
+          break;
+      }
+    var scoreTxt = document.getElementById('scoreTxt');
+    scoreTxt.innerHTML = scoreVal;
+    }
+  }
+    function toggleQuesDisplay(questionNum){
+      var displayBtn = document.getElementById('displayBtn'+questionNum);
+      var divQuestion = document.getElementById("question"+questionNum);
+      if(window.getComputedStyle(divQuestion).display === "none"){
+        divQuestion.style.display = 'flex'
+        displayBtn.innerHTML = '-';
+      }else{
+        divQuestion.style.display = 'none'
+        displayBtn.innerHTML = '+';
+      }
+    }
+
+  </script>
+  <body>
+    <div>
+      <link href="./home.css" rel="stylesheet" />
+
+      <div class="home-container" 
+      style="height: 500px; background-color: white; align-items: center; justify-content: flex-start; padding: 30px;">
+
+
+      <ul class="quizList">
+        <li style="width: 100%;">
+          <span style="width: 100%;">1) What is the 10/2?
+        </span>
+        <span style="float: right;">
+          <button style="padding: 5px;" id="displayBtn1" onclick="toggleQuesDisplay(1);" class="listBtn">+</button>
+        </span>
+        </li>
+        <div id="question1" class="questionListRow">
+            <label style="font-weight: 600;" for="5">5</label><br>
+            <input type="radio" id="q1L" name="q1" value="5">
+            <label style="font-weight: 600;" for="8">8</label><br>
+            <input style="margin-left: 5px;" type="radio" id="q1R" name="q1" value="8">
+            <button id="answerBtn1" class="sliderNextBtn" style="width: auto; margin-left: 20px;" onclick="detectAnswer(1);">Answer</button>
+        </div>
+        <li style="width: 100%;">
+          <span style="width: 100%;">2) What is the 30/2?
+        </span>
+        <span style="float: right;">
+          <button style="padding: 5px;" id="displayBtn2" onclick="toggleQuesDisplay(2);" class="listBtn">+</button>
+        </span>
+        </li>
+        <div id="question2" class="questionListRow">
+            <label style="font-weight: 600;" for="10">10</label><br>
+            <input type="radio" id="q2L" name="q2" value="10">
+            <label style="font-weight: 600;" for="15">15</label><br>
+            <input style="margin-left: 5px;" type="radio" id="q2R" name="q2" value="15">
+            <button id="answerBtn2" class="sliderNextBtn" style="width: auto; margin-left: 20px;" onclick="detectAnswer(2);">Answer</button>
+        </div>
+        <li style="width: 100%;">
+          <span style="width: 100%;">3) What is the 21%2?
+        </span>
+        <span style="float: right;">
+          <button style="padding: 5px;" id="displayBtn3" onclick="toggleQuesDisplay(3);" class="listBtn">+</button>
+        </span>
+        </li>
+        <div id="question3" class="questionListRow">
+            <label style="font-weight: 600;" for="0.55">0.55</label><br>
+            <input type="radio" id="q3L" name="q3" value="0.55">
+            <label style="font-weight: 600;" for="0.42">0.42</label><br>
+            <input style="margin-left: 5px;" type="radio" id="q3R" name="q3" value="0.42">
+            <button id="answerBtn3" class="sliderNextBtn" style="width: auto; margin-left: 20px;" onclick="detectAnswer(3);">Answer</button>
+        </div>
+      </ul>
+
+      <br/>
+      <br/>
+      <br/>
+       <h1 style="color: green;">Get Results</h1>
+      <br/>
+       <h1 id="scoreTxt" style="color: green;">0</h1>
+
+        </div>
+        
+    </div>
+  </body>
+</html>
